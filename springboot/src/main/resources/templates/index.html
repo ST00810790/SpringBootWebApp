@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Registration</title>
+
+<style>
+body{
+background-color:#800080;
+}
+.center{
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+margin-top:40px;
+}
+h1{
+color:8B008B;
+}
+.button {
+ background-color: #FFB6C1;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1{
+background-color: #4CAF50;
+padding: 10px 20px;
+border-radius:12px;
+margin: 2px 2px;
+text-align: center;
+text-decoration: none;
+ display: inline-block;
+ cursor: pointer;
+}
+.button2{
+background-color: red;
+padding: 10px 20px;
+margin: 2px 2px;
+border-radius:12px;
+text-align: center;
+text-decoration: none;
+ display: inline-block;
+ cursor: pointer;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color:grey;
+  color: white;
+}
+ </style>
+</head>
+<body>
+
+	 <div class="center">
+	<h1>STUDENT DETAILS</h1>
+	
+	<a th:href = "@{/showNewStudentForm}"  > <button class=button>Add Student</button> </a>
+	 
+		<table class="center" >
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Student Email</th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student : ${listStudents}">
+					<td th:text="${student.firstName}"></td>
+					<td th:text="${student.lastName}"></td>
+					<td th:text="${student.email}"></td>
+					<td> <a th:href="@{/showFormForUpdate/{id}(id=${student.id})}" ><button class="button1">Update</button></a>
+					    <a th:href="@{/deleteStudent/{id}(id=${student.id})}"><button class="button2">Delete</button></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+	</div>
+</body>
+</html>

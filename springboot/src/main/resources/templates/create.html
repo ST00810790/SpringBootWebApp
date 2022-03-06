@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Details</title>
+<style>
+body{
+background-color:#008080;
+
+}
+.container{
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+margin-top:40px;
+}
+label{
+font-size:150%
+}
+input[type=text], select {
+  width: 20%;
+  padding: 12px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #FA8072;
+}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1>ADD STUDENT DETAILS</h1>
+		
+		
+
+		<form action="#" th:action="@{/saveStudent}" th:object="${student}"
+			method="POST">
+			<label>First Name</label><br>
+			<input type="text" th:field="*{firstName}"
+				placeholder="Student First Name" ></br></br>
+				<label>Last Name</label><br>
+				<input type="text" th:field="*{lastName}"
+				placeholder="Student Last Name"></br></br>
+				<label>Email</label><br>
+				<input type="text" th:field="*{email}"
+				placeholder="Student Email" ></br></br>
+				
+				<input type="submit" value="Save Student">
+		</form>
+		</br>
+		</br>
+		
+		
+		<a th:href = "@{/}"> Back to Home</a>
+	</div>
+</body>
+</html>
